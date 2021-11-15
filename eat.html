@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>今天去哪里吃饭</title>
+</head>
+<style>
+    #box {
+        background-color: rgb(204, 204, 204);
+        width: 400px;
+        font: 600 24px/3 "";
+        text-align: center;
+        margin: 20px auto;
+        border-radius: 12px;
+    }
+
+    #btn {
+        background-color: #CFF;
+        width: 100px;
+        font: 14px/2 "";
+        text-align: center;
+        margin: 10px 47%;
+        border-radius: 25px;
+    }
+</style>
+
+<body>
+    <div id="box">今天去哪里吃饭</div>
+    <input type="button" id="btn" value="Start">
+</body>
+<script>
+
+    var arr = ["加塞吧里", "三楼食堂", "四楼食堂", "五楼食堂", "六楼食堂", "七楼食堂", "外卖", "五期食堂"];
+
+    var box = document.getElementById("box")
+    var btn = document.getElementById("btn")
+
+    var i = 0;
+    var t;
+
+    btn.onclick = function () {
+        if (i == 0) {
+            t = setInterval(function () {
+                box.innerHTML = arr[random(0, arr.length - 1)];
+            }, 30);
+
+            i = 1;
+            btn.value = "Stop"
+        } else {
+            clearInterval(t);
+            i = 0;
+            btn.value = "Continue";
+        }
+    }
+
+
+    function random(a, b) {
+        return Math.round(Math.random() * (a - b) + b);
+    }
+
+</script>
+
+</html>
